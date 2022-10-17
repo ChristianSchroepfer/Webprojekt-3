@@ -1,9 +1,11 @@
 version: '2'
 services:
-  web:
-    build: .
-    volumes:
-      - .:/app/
-      - /usr/app/node_modules
-    ports:
-      - "5000:5000"
+    frontend:
+      image: christianschroepfer/demo-frontend:002
+    
+      ports:
+       - "5003:80"
+    backend: 
+      image: christianschroepfer/demo-backend-nodejs:001
+      ports:
+        - "5002:5002"
